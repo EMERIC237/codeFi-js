@@ -1,0 +1,10 @@
+# vsCode
+/.history
+.history/*
+.history
+.vscode
+node_modules
+dist
+.env
+
+```

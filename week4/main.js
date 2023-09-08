@@ -118,13 +118,13 @@ function updatedScore() {
   gameScrore++;
 }
 
-// function displayPlayer(){
-//   player += ": player 1";
-//   const player = "Emeric";
-//   console.log("Player: " + player);
-// }
+function displayPlayer(){
+  player += ": player 1";
+  const player = "Emeric";
+  console.log("Player: " + player);
+}
 
-// displayPlayer();
+displayPlayer();
 
 
 
