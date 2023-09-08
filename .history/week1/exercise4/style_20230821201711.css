@@ -1,0 +1,15 @@
+form{
+    width: 80%;
+    margin: 5px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #444;
+    color: #fff;
+    cursor: pointer;
+}
