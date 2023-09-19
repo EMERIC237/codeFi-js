@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Buttons DOM Exercise</title>
+    <style>
+      .buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: blue;
+        min-height: 80px;
+      }
+      button {
+        border-radius: 15%;
+        padding: 5px 15px;
+        background-color: rgb(6, 24, 24);
+        color: aliceblue;
+        height: 80%;
+      }
+      .bigText {
+        margin: auto;
+        text-align: center;
+        font-size: 100px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .list-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s; /* Smooth transition for background color */
+      }
+
+      .list-items:hover {
+        background-color: #e0e0e0;
+      }
+
+      .list-items ul {
+        width: 90%;
+      }
+
+      .list-items li {
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0px;
+        margin-top: 8px;
+        transition: background-color 0.3s, color 0.3s; /* Smooth transitions for background and text color */
+      }
+
+      .list-items li:nth-child(even) {
+        background-color: #3498db;
+        color: #fff;
+      }
+
+      .list-items li:nth-child(odd) {
+        background-color: #e74c3c;
+        color: #fff;
+      }
+
+      .list-items li:hover {
+        background-color: #555;
+        color: #fff;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="buttons">
+      <button class="btn_onclick">First</button>
+      <button class="btn_onclick">Second</button>
+      <button class="btn_onclick">Third</button>
+      <button id="clikMe">Click Me</button>
+    </div>
+    <div>
+      <fieldset>
+        <legend>The amplifier</legend>
+        <input type="text" id="textInput" />
+        <p class="bigText" id="textDisplay"></p>
+      </fieldset>
+    </div>
+    <div class="list-items">
+      <ul id="itemList"></ul>
+    </div>
+
+    <script>
+      const getColor = () =>
+        "#" + Math.floor(Math.random() * 16777215).toString(16);
+      const allButtons = document.querySelectorAll(".btn_onclick");
+      allButtons.forEach((btn) => {
+        btn.style.cursor = "pointer";
+        btn.addEventListener("click", () => {
+          document.body.style.backgroundColor = getColor();
+        });
+      });
+      const clickMeBtn = document.getElementById("clikMe");
+      clickMeBtn.addEventListener("click", () => {
+        alert("Button was clicked");
+      });
+
+      //Exercise5 handle input keypress
+      const inputField = document.getElementById("textInput");
+      const displayField = document.getElementById("textDisplay");
+      inputField.addEventListener("input", () => {
+        displayField.innerText = inputField.value;
+      });
+
+      // Exercise6: modify Dom- add to list
+      const items = [
+        { name: "Item 1" },
+        { name: "Item 2" },
+        { name: "Item 3" },
+        { name: "Item 4" },
+      ];
+
+      const itemsList = document.getElementById("itemList");
+      items.forEach(({ name }) => {
+        itemsList.innerHTML += `<li>${name}</li>`;
+      });
+    </script>
+  </body>
+</html>
